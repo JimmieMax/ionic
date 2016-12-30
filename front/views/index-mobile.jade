@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title=title
+        //css
+        include ../models/common/Meta-Mobile.html
+        include ../models/common/StyleSheets-Mobile.html
+        script(src="controller/common/less.js")
+    body(ng-app="app")
+        //model
+        div(ng-controller="header" data-role="header" data-position="fixed")
+            include ../models/common/Header-mobile.html
+        div(data-role="main" class="ui-content" data-position="fixed")
+            div(ng-controller="explore" id="explore" data-role="" class="ui-content")
+                include ../models/index/explore-mobile.html
+            div(ng-controller="messages" id="messages" data-role="" class="ui-content")
+                include ../models/index/messages-mobile.html
+            div(ng-controller="my" id="my" data-role="" class="ui-content")
+                include ../models/index/my-mobile.html
+        div(ng-controller="footer" data-role="footer" data-position="fixed")
+            include ../models/common/Footer-Mobile.html
+        //controller
+        include ../models/common/JavaScript-Mobile.html
+        script(src="controller/index/index-mobile.js")
+        script(src="controller/common/footer-mobile.js")

@@ -1,0 +1,32 @@
+{
+  "name": "ionic",
+  "version": "0.0.1",
+  "author": "Jimmie",
+  "dependencies": {
+    "express": "4.14.0",
+    "mysql": "latest",
+    "jade": "latest",
+    "serve-favicon": "2.3.2",
+    "body-parser": "1.15.2"
+  },
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/JimmieMax/ionic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JimmieMax/ionic/issues"
+  },
+  "homepage": "https://github.com/JimmieMax/ionic#readme",
+  "description": "ionic app example",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "ionic",
+    "angular",
+    "node"
+  ],
+  "license": "ISC"
+}

@@ -1,0 +1,24 @@
+@color-icon: rgba(0,0,0,0.25);
+@height-most: 100%;
+@text-center: center;
+.color-black(@opacity:1){
+  color: rgba(0,0,0,@opacity);
+}
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+html,body{
+  height: @height-most;
+}
+.icon {
+  .color-black(0.5);
+  font-size: 30px;
+  color: @color-icon;
+  text-align: @text-center;
+}
+.active{
+  .color-black(0.75);
+}
