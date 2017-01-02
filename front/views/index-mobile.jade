@@ -6,7 +6,7 @@ html
         include ../models/common/Meta-Mobile.html
         include ../models/common/StyleSheets-Mobile.html
         script(src="controller/common/less.js")
-    body(ng-app="app")
+    body(ng-app="app" ng-controller="actionsheetCtl")
         //model
         div(ng-controller="header" data-role="header" data-position="fixed")
             include ../models/common/Header-mobile.html
