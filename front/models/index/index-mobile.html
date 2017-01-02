@@ -1,13 +1,19 @@
-<div class="container">
 
-    <div class="bar bar-header">
-        <div class="title">Tools</div>
-    </div>
+<ion-side-menus>
 
-    <div class="content has-header" ng-controller="loginUser">
-        <i>Hello {{username}}</i>
-    </div>
+    <!-- 中心内容 -->
+    <ion-side-menu-content>
+        <ion-header-bar class="bar-dark">
+            <h1 class="title">Todo</h1>
+        </ion-header-bar>
+        <ion-content>
+        </ion-content>
+    </ion-side-menu-content>
 
-    <div class="tabs-color-assertive" ng-include="'models/common/Footer-Mobile.html'"></div>
-
-</div>
+    <!-- 左侧菜单 -->
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-dark">
+            <h1 class="title">Projects</h1>
+        </ion-header-bar>
+    </ion-side-menu>
+</ion-side-menus>
