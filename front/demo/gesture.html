@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>菜鸟教程(runoob.com)</title>
+    <link href="//www.runoob.com/static/ionic/css/ionic.min.css" rel="stylesheet">
+    <script src="https://www.runoob.com/static/ionic/js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+        angular.module('starter', ['ionic'])
+
+            .run(function($ionicPlatform) {
+                $ionicPlatform.ready(function() {
+                    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+                    // for form inputs)
+                    if(window.cordova && window.cordova.plugins.Keyboard) {
+                        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                    }
+                    if(window.StatusBar) {
+                        StatusBar.styleDefault();
+                    }
+                });
+            })
+
+            .controller( 'actionsheetCtl',['$scope',function($scope){
+
+                $scope.onHold=function(){
+                    alert('on-hold')
+                };
+                $scope.onTap=function(){
+                    alert('on-tap')
+                };
+                $scope.onDoubleTap=function(){
+                    alert('on-DoubleTap')
+                };
+                $scope.onTouch=function(){
+                    alert("你触发了on-touch")
+                };
+                $scope.onRelease=function(){
+                    alert("你触发了onRelease")
+                };
+                $scope.onDrag=function(){
+                    console.log("onDrag")
+                };
+                $scope.onDragUp=function(){
+                    console.log("onDragUp")
+                }
+
+                $scope.onDragDown=function(){
+                    console.log("onDragDown")
+                }
+
+                $scope.onDragRight=function(){
+                    console.log("onDragRight")
+                }
+
+                $scope.onDragLeft=function(){
+                    console.log("onDragLeft")
+                }
+                $scope.onSwipe=function(){
+                    alert("onSwipe")
+                }
+
+                $scope.onSwipeUp=function(){
+                    console.log("onSwipeUp")
+                }
+
+                $scope.onSwipeDown=function(){
+                    console.log("onSwipeDown")
+                }
+
+                $scope.onSwipeLeft=function(){
+                    console.log("onSwipeLeft")
+                }
+
+                $scope.onSwipeRight=function(){
+                    console.log("onSwipeRight")
+                }
+
+
+            }])
+    </script>
+</head>
+<body ng-app="starter" ng-controller="actionsheetCtl" >
+<button on-hold="onHold()" class="button">长按我！</button>
+<hr>
+<button on-tap="onTap()" class="button">轻击我</button>
+<hr>
+<button
+        on-double-tap="onDoubleTap()"
+        class="button">
+    双击我
+</button>
+<hr>
+<button on-touch="onTouch()" class="button">on-touch</button>
+<hr>
+<button on-release="onRelease()" class="button">onRelease</button>
+<hr>
+<button on-drag="onDrag()" class="button">onDrag</button>
+<hr>
+<button on-drag-up="onDragUp()" class="button">onDragUp</button>
+<button on-drag-down="onDragDown()" class="button">onDragDown</button>
+<button on-drag-right="onDragRight()" class="button">onDragRight</button>
+<button on-drag-left="onDragLeft()" class="button">onDragLeft</button>
+<hr>
+<button on-swipe="onSwipe()" class="button">onSwipe</button>
+<button on-swipe-up="onSwipeUp()" class="button">onSwipeUp</button>
+<button onSwipeDown="onSwipeDown()" class="button">onSwipeDown</button>
+<button onSwipeUp="onSwipeRight()" class="button">onSwipeRight</button>
+<button onSwipeUp="onSwipeLeft()" class="button">onSwipeLeft</button>
+<hr>
+</body>
+</html>
