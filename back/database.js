@@ -7,6 +7,7 @@ var dbConnect = mysql.createConnection({
     password: 'cooller',
     database:'node',
     port: 3306,
+    charset:'UTF8MB4_GENERAL_CI',//for the emoji
     multipleStatements: true
 });
 dbConnect.on('error', function (err) {
