@@ -27,7 +27,7 @@ app.use(favicon(path.join(__dirname,'/front/images/common/favicon/favicon.ico'))
 app.use(express.static(path.join(__dirname,'/front')));//static url
 
 //set parse
-app.use(bodyParser.urlencoded({uploadDir:path.join(__dirname,'./uploads'),extended: false}));//upload file url
+app.use(bodyParser.urlencoded({uploadDir:path.join(__dirname,'/front/uploads'),extended: false}));//upload file url
 app.use(bodyParser.json())//parser json
 
 //set route
