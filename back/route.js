@@ -22,6 +22,6 @@ exports.route = function (app) {
         res.render('test.jade', {title:"test"});
     });
     app.get('/test-mobile', function(req, res){
-        res.render('test-mobile.jade', {title:"test"});
+        res.render('index-mobile.jade', {title:"test"});
     });
 };
