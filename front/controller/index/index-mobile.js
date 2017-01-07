@@ -17,3 +17,10 @@ var app = angular.module('app', ['ionic','routes']);
             }
         });
     });
+    app.controller('setting',function($scope) {
+        $scope.username = Global.loginUser.username;
+    });
+
+app.controller('message',function($scope) {
+    $scope.username = Global.loginUser.username;
+});
