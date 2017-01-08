@@ -1,4 +1,6 @@
 var Global = {};
 
-Global.loginUser=JSON.parse($.cookie('user').replace('j:',''));
+Global.loginUser = $.cookie('user')?JSON.parse($.cookie('user').replace('j:','')):'';
 console.log(Global.loginUser);
+
+Global.dataConn = new dataConnect('');

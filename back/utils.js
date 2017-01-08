@@ -1,4 +1,10 @@
 
+function getDateIntSecs() {
+    var date = new Date();
+    var time = parseInt(date.getTime()/1000);
+    return time;
+}
+
 function isJSON(obj){
     var isjson = typeof(obj) == "object" && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" && !obj.length;
     return isjson;
@@ -41,5 +47,6 @@ function isMobile(req) {
 
 }
 
+exports.getDateIntSecs = getDateIntSecs;
 exports.jsonStringToObject = jsonStringToObject;
 exports.isMobile = isMobile;
