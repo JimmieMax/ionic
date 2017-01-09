@@ -36,14 +36,32 @@ dataConnect.prototype.getUsers= function(callback){
     });
 };
 
-dataConnect.prototype.createFriend= function(userID,friendID,remarkName,callback){
+dataConnect.prototype.createFriend= function(fromUserID,toUserID,remarkName,callback){
     $.ajax({
         url: '/database?do=createfriend',
         dataType:"json",
         data: {
-            "userID":userID,
-            "friendID":friendID,
+            "fromUserID":fromUserID,
+            "toUserID":toUserID,
             "remarkName":remarkName
+        },
+        type: 'POST',
+        jsonpCallback: 'callback',
+        success: function (data) {
+            callback(data);
+        },
+        error: function (xhr, status, error) {
+            alert("Create friend failed");
+        }
+    });
+};
+
+dataConnect.prototype.getCreateFriendMessages= function(userID,callback){
+    $.ajax({
+        url: '/database?do=getcreatefriendmessage',
+        dataType:"json",
+        data: {
+            "userID":userID
         },
         type: 'POST',
         jsonpCallback: 'callback',

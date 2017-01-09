@@ -78,7 +78,7 @@ function createFriend(req,res){
     var resObj ={"msg":"","result":true,"token":"","error_code":"0"};
 
     var create_friend_sql = 'INSERT friends'+
-        ' SET userID='+obj.userID+',friendID='+obj.friendID+',remarkName='+mysql.escape(obj.remarkName)+',createTime='+utils.getDateIntSecs();
+        ' SET fromUserID='+obj.fromUserID+',toUserID='+obj.toUserID+',remarkName='+mysql.escape(obj.remarkName)+',createTime='+utils.getDateIntSecs();
     console.log(create_friend_sql);
 
     dbConnect.query(create_friend_sql,function(err,results){
@@ -86,6 +86,25 @@ function createFriend(req,res){
         resObj.msg = 'Create friend successfully';
         res.send(resObj);
     })
+}
+
+function getCreateFriendMessages(req,res){
+    console.log("getCreateFriendMessages here");
+
+    var obj = req.query.data;
+    var resObj ={"msg":"","result":true,"token":"","error_code":"0"};
+
+    var get_create_friend_message_sql = 'SELECT friends.*,users.username,users.avatar'+
+        ' FROM friends,users'+
+        ' WHERE friends.toUserID='+obj.userID+' AND friends.accepted=0 AND users.id=friends.fromUserID';
+    console.log(get_create_friend_message_sql);
+
+    dbConnect.query(get_create_friend_message_sql,function(err,results){
+        if (err) throw err;
+        resObj.msg = 'Get create friend message successfully';
+        resObj.messages = results;
+        res.send(resObj);
+    });
 }
 
 function createMessage(req,res){
@@ -139,6 +158,8 @@ exports.api = function(req, res){
             break;
         //for friends
         case "createfriend" : createFriend(req,res);
+            break;
+        case "getcreatefriendmessage" : getCreateFriendMessages(req,res);
             break;
         //for messages
         case "createmessage" : createMessage(req,res);
