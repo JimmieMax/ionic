@@ -36,11 +36,12 @@ dataConnect.prototype.getUsers= function(callback){
     });
 };
 
-dataConnect.prototype.createFriend= function(fromUserID,toUserID,remarkName,callback){
+dataConnect.prototype.createFriend= function(action,fromUserID,toUserID,remarkName,callback){
     $.ajax({
         url: '/database?do=createfriend',
         dataType:"json",
         data: {
+            "action" : action,
             "fromUserID":fromUserID,
             "toUserID":toUserID,
             "remarkName":remarkName
