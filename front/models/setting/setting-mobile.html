@@ -1,7 +1,10 @@
 
 <ion-view>
-    <ion-content ng-controller="setting">
-        <i>Hello {{username}}</i>
-        <i>Welcome to the magic world!</i>
+    <ion-content ng-controller="settingCtrl">
+        <ion-item class="item item-avatar">
+            <img src="{{loginUser.avatar}}">
+            <h2>{{loginUser.username}}</h2>
+            <p>Where there is a will,there is a way</p>
+        </ion-item>
     </ion-content>
 </ion-view>

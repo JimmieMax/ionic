@@ -75,6 +75,43 @@ dataConnect.prototype.getCreateFriendMessages= function(userID,callback){
     });
 };
 
+dataConnect.prototype.getFriends= function(userID,callback){
+    $.ajax({
+        url: '/database?do=getfriends',
+        dataType:"json",
+        data: {
+            "userID":userID
+        },
+        type: 'POST',
+        jsonpCallback: 'callback',
+        success: function (data) {
+            callback(data);
+        },
+        error: function (xhr, status, error) {
+            alert("Get friends failed");
+        }
+    });
+};
+
+dataConnect.prototype.searchFriends= function(userID,keyword,callback){
+    $.ajax({
+        url: '/database?do=searchfriends',
+        dataType:"json",
+        data: {
+            "userID":userID,
+            "keyword":keyword
+        },
+        type: 'POST',
+        jsonpCallback: 'callback',
+        success: function (data) {
+            callback(data);
+        },
+        error: function (xhr, status, error) {
+            alert("Search friends failed");
+        }
+    });
+};
+
 dataConnect.prototype.createMessage= function(fromUserID,toUserID,message,callback){
     $.ajax({
         url: '/database?do=createmessage',

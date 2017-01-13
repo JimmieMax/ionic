@@ -92,7 +92,7 @@ function createFriend(req,res){
             ' SET fromUserID='+obj.fromUserID+',toUserID='+obj.toUserID+',remarkName='+mysql.escape(obj.remarkName)+',accepted=1,createTime='+utils.getDateIntSecs();
         var update_friend_sql = 'UPDATE friends'+
             ' SET accepted=1'+
-            ' WHERE fromUserID='+obj.toUserID;
+            ' WHERE fromUserID='+obj.toUserID+' AND toUserID='+obj.fromUserID;
         console.log(create_friend_sql);
         console.log(update_friend_sql);
 
@@ -119,6 +119,44 @@ function getCreateFriendMessages(req,res){
         if (err) throw err;
         resObj.msg = 'Get create friend message successfully';
         resObj.messages = results;
+        res.send(resObj);
+    });
+}
+
+function getFriends(req,res){
+    console.log("getFriends here");
+
+    var obj = req.query.data;
+    var resObj ={"msg":"","result":true,"token":"","error_code":"0"};
+
+    var get_friends_sql = 'SELECT friends.remarkName,users.username,users.avatar'+
+        ' FROM friends,users'+
+        ' WHERE friends.fromUserID='+obj.userID+' AND friends.accepted=1 AND users.id=friends.toUserID';
+    console.log(get_friends_sql);
+
+    dbConnect.query(get_friends_sql,function(err,results){
+        if (err) throw err;
+        resObj.msg = 'Get friends successfully';
+        resObj.friends = results;
+        res.send(resObj);
+    });
+}
+
+function searchFriends(req,res){
+    console.log("searchFriends here");
+
+    var obj = req.query.data;
+    var resObj ={"msg":"","result":true,"token":"","error_code":"0"};
+
+    var get_friends_sql = 'SELECT friends.remarkName,users.username,users.avatar'+
+        ' FROM friends,users'+
+        ' WHERE friends.fromUserID='+obj.userID+' AND friends.accepted=1 AND (friends.remarkName LIKE '+mysql.escape('%'+obj.keyword+'%')+' OR users.username LIKE '+mysql.escape(obj.keyword)+') AND users.id=friends.toUserID';
+    console.log(get_friends_sql);
+
+    dbConnect.query(get_friends_sql,function(err,results){
+        if (err) throw err;
+        resObj.msg = 'Search friends successfully';
+        resObj.friends = results;
         res.send(resObj);
     });
 }
@@ -176,6 +214,10 @@ exports.api = function(req, res){
         case "createfriend" : createFriend(req,res);
             break;
         case "getcreatefriendmessage" : getCreateFriendMessages(req,res);
+            break;
+        case "getfriends" : getFriends(req,res);
+            break;
+        case "searchfriends" : searchFriends(req,res);
             break;
         //for messages
         case "createmessage" : createMessage(req,res);

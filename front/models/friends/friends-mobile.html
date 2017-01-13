@@ -2,10 +2,15 @@
 <ion-view>
     <ion-content ng-controller="friendsCtrl">
         <ion-list>
-            <ion-item class="item item-avatar" ng-repeat="item in items">
+            <ion-item class="item item-avatar" ng-repeat="item in messages">
                 <img src="{{item.avatar}}">
                 <h2>{{item.username}}</h2>
                 <p>Can I make a friend with you?</p>
+            </ion-item>
+            <ion-item class="item item-avatar" ng-repeat="item in friends">
+                <img src="{{item.avatar}}">
+                <h2>{{item.remarkName}}</h2>
+                <p>{{item.username}}</p>
             </ion-item>
         </ion-list>
     </ion-content>

@@ -1,7 +1,9 @@
 var app = angular.module('index', ['ionic','index.controllers','index.routes']);
 //这个地方的config不能少哦, 不然安卓平台的tabs会跑到顶部的
 app.config(['$ionicConfigProvider', function($ionicConfigProvider) {
-
+    if(!Global.loginUser){
+        window.location = 'login';
+    }
     $ionicConfigProvider.tabs.position('bottom'); // other values: top
 
 }]);
