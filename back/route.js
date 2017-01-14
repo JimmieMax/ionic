@@ -30,4 +30,8 @@ exports.route = function (app) {
         res.render('api.jade', {title:"api"});
     });
 
+    app.get('/download', function(req, res){
+        res.download('front/uploads/avatars/avatar.png');
+    });
+
 };

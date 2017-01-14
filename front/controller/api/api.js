@@ -19,10 +19,21 @@ $(function() {
     // Global.dataConn.createFriendGroups(1,3,callback);  //fromUserID,toUserID,callback
     // Global.dataConn.getFriendGroups(1,callback);  //userID,callback
     // Global.dataConn.getFriends(2,callback);  //userID,callback
-    Global.dataConn.searchFriends(2,'lover',callback);  //userID,keyword,callback
+    // Global.dataConn.searchFriends(2,'lover',callback);  //userID,keyword,callback
     //for messages
     // Global.dataConn.createMessage(1,3,'I am Jimmie!',callback);  //fromUserID,toUserID,message,callback
-    // Global.dataConn.getMessages(1,3,callback);  //fromUserID,toUserID,callback
+    Global.dataConn.getMessages(
+        'someone',
+        {friendID : 1},
+        3,
+        callback
+    );  //condition,data,userID,callback
+    Global.dataConn.getMessages(
+        'friends',
+        {},
+        3,
+        callback
+    );  //condition,data,userID,callback
     // Global.dataConn.searchMessages(1,'Hello',callback);  //userID,keyword,callback
     //for articles
     // Global.dataConn.getArticles(1,callback);  //userID,pageNum,offset,callback

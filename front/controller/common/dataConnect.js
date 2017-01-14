@@ -138,7 +138,7 @@ dataConnect.prototype.getMessages= function(fromUserID,toUserID,callback){
         dataType:"json",
         data: {
             "fromUserID":fromUserID,
-            "toUserID":toUserID,
+            "toUserID":toUserID
         },
         type: 'POST',
         jsonpCallback: 'callback',
