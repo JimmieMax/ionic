@@ -5,9 +5,9 @@ angular.module('index.controllers', [])
             $state.go("tab.friends");
         };
         if(Global.loginUser) {
-            Global.dataConn.getMessages(1,Global.loginUser.id,function (data) {
-                $scope.items = data.messages;
-            });
+            // Global.dataConn.getMessages(1,Global.loginUser.id,function (data) {
+            //     $scope.items = data.messages;
+            // });
         }else{
                 window.location = 'login';
         }

@@ -41,7 +41,7 @@ angular.module('index.routes', [])
                 views: {
                     'tab-find-self': {
                         templateUrl: './models/find/find-self-mobile.html',
-                        controller:'findSelfCtrl'
+                        // controller:'findSelfCtrl'
                     }
                 }
             })

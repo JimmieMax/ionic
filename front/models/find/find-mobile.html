@@ -1,9 +1,9 @@
 
 <ion-view>
     <div class="tabs bar-header">
-        <span class="tab-item" ui-sref="tab.find.self">贵圈
+        <a class="tab-item" ui-sref="tab.find.self">贵圈
             <!--<ion-nav-view animation="slide-left-right" name="tab-find-self"></ion-nav-view>-->
-        </span>
+        </a>
         <span class="tab-item">热圈</span>
         <span class="tab-item">吐槽</span>
         <span class="tab-item">新闻</span>
@@ -11,6 +11,10 @@
         <span class="tab-item">体育</span>
     </div>
     <ion-content>
+        <ion-refresher
+                pulling-text="下拉刷新..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
         <ion-nav-view name="tab-find-self"></ion-nav-view>
     </ion-content>
 </ion-view>
