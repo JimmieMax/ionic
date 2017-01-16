@@ -13,7 +13,8 @@ angular.module('index.routes', [])
                 url: '/messages',
                 views: {
                     'tab-messages': {
-                        templateUrl: './models/messages/messages-mobile.html'
+                        templateUrl: './models/messages/messages-mobile.html',
+                        controller:'messagesCtrl'
                     }
                 }
             })
@@ -21,7 +22,8 @@ angular.module('index.routes', [])
                 url: '/friends',
                 views: {
                     'tab-friends': {
-                        templateUrl: './models/friends/friends-mobile.html'
+                        templateUrl: './models/friends/friends-mobile.html'  ,
+                        controller:'friendsCtrl'
                     }
                 }
             })
@@ -29,7 +31,17 @@ angular.module('index.routes', [])
                 url: '/find',
                 views: {
                     'tab-find': {
-                        templateUrl: './models/find/find-mobile.html'
+                        templateUrl: './models/find/find-mobile.html',
+                        controller:'findCtrl'
+                    }
+                }
+            })
+            .state('tab.find.self', {
+                url: '/find/self',
+                views: {
+                    'tab-find-self': {
+                        templateUrl: './models/find/find-self-mobile.html',
+                        controller:'findSelfCtrl'
                     }
                 }
             })
@@ -37,7 +49,8 @@ angular.module('index.routes', [])
                 url: '/setting',
                 views: {
                     'tab-setting': {
-                        templateUrl: './models/setting/setting-mobile.html'
+                        templateUrl: './models/setting/setting-mobile.html',
+                        controller:'settingCtrl'
                     }
                 }
             });
